@@ -12,6 +12,7 @@ public class DigitalProduct {
 
         super();
         this.downloadUrl=downloadURl;
+        this.filesizeMB=filesizeMB;
     }
     public double getFilesizeMB() {
         return filesizeMB;
