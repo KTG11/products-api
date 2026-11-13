@@ -25,7 +25,8 @@ public class ProductController {
 
     // 4. POST a new product
     @PostMapping("/products")
-    public Product addProduct(@RequestBody Product product) {
+    // Product is abstract, so Jackson cannot build one - temporary fix until Lectures 6/7
+    public Product addProduct(@RequestBody DigitalProduct product) {
         return productService.addProduct(product);
     }
 
