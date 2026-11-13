@@ -15,6 +15,10 @@ public class Product {
         this.price = price;
     }
 
+    public String getSummary() {
+        return getName() + " — £" + getPrice();
+    }
+
     // ---- Getters (Tutorial 2) ----
     public Long getId() {
         return id;
