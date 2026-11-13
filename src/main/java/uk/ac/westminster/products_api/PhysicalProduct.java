@@ -6,12 +6,11 @@ public class PhysicalProduct extends Product {
     private String dimensions;
 
     public PhysicalProduct() {
-
     }
 
     public PhysicalProduct(Long id, String name, double price,
                            double weightKg, String dimensions) {
-        super();
+        super(id, name, price);
         this.weightKg = weightKg;
         this.dimensions = dimensions;
     }
@@ -20,4 +19,3 @@ public class PhysicalProduct extends Product {
 
     public String getDimensions() { return dimensions; }
 }
-
