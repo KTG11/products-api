@@ -25,7 +25,8 @@ public class ProductController {
 
     // 4. POST a new product
     @PostMapping("/products")
-    public Product addProduct(@RequestBody Product product) {
+    // Product is abstract, so Jackson cannot build one - temporary fix until Lectures 6/7
+    public Product addProduct(@RequestBody DigitalProduct product) {
         return productService.addProduct(product);
     }
 
@@ -39,5 +40,11 @@ public class ProductController {
     @GetMapping("/products/search")
     public List<Product> searchProducts(@RequestParam String name) {
         return productService.findByName(name);
+    }
+
+    // 7. GET every product's summary
+    @GetMapping("/products/summaries")
+    public List<String> getSummaries() {
+        return productService.getAllSummaries();
     }
 }

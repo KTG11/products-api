@@ -1,6 +1,6 @@
 package uk.ac.westminster.products_api;
 
-public class Product {
+public abstract class Product {
 
     private Long id;
     private String name;
@@ -14,6 +14,10 @@ public class Product {
         this.name = name;
         this.price = price;
     }
+
+    // No body. Product cannot answer this question,
+    // so every concrete subclass MUST answer it.
+    public abstract String getSummary();
 
     // ---- Getters (Tutorial 2) ----
     public Long getId() {

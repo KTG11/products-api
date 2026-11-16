@@ -12,6 +12,12 @@ public class ProductService {
     private final List<Product> products = new ArrayList<>();
     private Long nextId = 1L;
 
+    // Seed data: one of each subclass
+    public ProductService() {
+        addProduct(new DigitalProduct(null, "E-book", 9.99, "/dl/1", 4.2));
+        addProduct(new PhysicalProduct(null, "Mug", 8.50, 0.35, "10x8x8cm"));
+    }
+
     // 2. Method to get all products
     public List<Product> getAllProducts() {
         return products;
@@ -41,5 +47,14 @@ public class ProductService {
         return products.stream()
                 .filter(p -> p.getName().contains(name))
                 .toList();
+    }
+
+    // 7. Method to get every product's summary (polymorphism)
+    public List<String> getAllSummaries() {
+        List<String> summaries = new ArrayList<>();
+        for (Product p : products) {
+            summaries.add(p.getSummary());
+        }
+        return summaries;
     }
 }
